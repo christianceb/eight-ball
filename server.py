@@ -1,6 +1,7 @@
 import socket
 import threading
 from _thread import start_new_thread
+from classes.EightBall import EightBall
 
 
 def responder(conn, addr):
@@ -24,7 +25,7 @@ def responder(conn, addr):
 
 
 def process_response(data):
-    return str(len(data)).encode()
+    return eight_ball.get_response(data).encode()
 
 
 def main():
@@ -42,5 +43,6 @@ def main():
 
 
 responder_lock = threading.Lock()
+eight_ball = EightBall()
 if __name__ == '__main__':
     main()

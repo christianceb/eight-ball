@@ -11,7 +11,7 @@ def run_eight_ball(sock: socket):
 
         sock.send(question.encode())
         response = sock.recv(1024)
-        print("\nA: " + str(response.decode()) + "\n")
+        print("A: " + str(response.decode()) + "\n")
 
 
 def main():
