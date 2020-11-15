@@ -2,9 +2,20 @@ import random
 
 
 class EightBall:
-    def get_response(self, entropy: str):
+    def get_response(self, entropy: str = ""):
+        """
+        Get a response from the Eight-ball. You can pass any string for entry
+        :param entropy: Any string to muddle up the randomiser. Empty string by default
+        :return: A string containing the response of the eight ball
+        """
+
+        # Feed entropy to our random seed
         random.seed(entropy)
+
+        # Generate a random number to determine our answer
         answer = random.randint(0, 2)
+
+        # Determine bounds of the array of variation of answers so we can safely get a response
         answer_variation_max = len(self.__responses[answer]) - 1
         answer_variation_key = random.randint(0, answer_variation_max)
 

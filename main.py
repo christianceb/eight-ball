@@ -15,6 +15,10 @@ def run_eight_ball(sock: socket):
 
 
 def main():
+    """
+    Open a socket and connect to our server
+    :return:
+    """
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         try:
             sock.connect(('127.0.0.1', 666))
